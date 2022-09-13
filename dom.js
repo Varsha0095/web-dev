@@ -28,3 +28,28 @@ header.style.borderBottom = '5px solid #000';
 
 // console.log(headerTitle.innerText);
 
+//Get an element by class name
+var  items = document.getElementsByClassName('list-group-item');
+console.log(items);
+//changing individual element text
+items[0].textContent = 'Hello1';
+items[1].textContent = 'Hello2';
+items[2].textContent = 'Hello3';
+//changing background color
+items[0].style.backgroundColor = 'yellow';
+items[1].style.backgroundColor = '#b2c3f3';
+items[2].style.backgroundColor = 'green';
+items[3].style.backgroundColor = '#e3e3f4'
+//changing style
+for(let i=0; i<items.length; i++){
+    items[i].style.fontWeight = 'bold';
+    items[i].style.fontFamily = 'verdana';
+}
+//changing style of h2
+var additem = document.getElementsByClassName('title');
+console.log(additem);
+additem[0].style.fontWeight = 'bold';
+additem[0].style.color = 'blue';
+
+
+
