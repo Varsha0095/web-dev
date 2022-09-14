@@ -4,28 +4,30 @@
     console.log(event.target.date.value);
     console.log(event.target.time.value);
 }*/
-
-
-console.log('hello');
+// const button = document.querySelector('button');
+//  button.addEventListener('click',(e) => {
+//      e.preventDefault();
+//      console.log('click');
+ 
+//  });
+//  button.addEventListener('mouseover',(e) => {
+//      e.preventDefault();
+//      console.log('mouseover');
+//  });
+//  button.addEventListener('mouseout', (e) => {
+//      e.preventDefault();
+//      console.log('mouseout');
+//  });
+ // console.log('hello');
+ 
  function onsubmit1(event){
     event.preventDefault();
-    console.log(event.target.name.value);
-    console.log(event.target.Email.value);
+    var val = event.target.name.value;
+    var mail = event.target.Email.value;
+    localStorage.setItem('name', val);
+    localStorage.setItem('Email', mail);
+    // console.log(event.target.Email.value);
  }
- const button = document.querySelector('button');
- button.addEventListener('click',(e) => {
-     e.preventDefault();
-     console.log('click');
- 
- });
- button.addEventListener('mouseover',(e) => {
-     e.preventDefault();
-     console.log('mouseover');
- });
- button.addEventListener('mouseout', (e) => {
-     e.preventDefault();
-     console.log('mouseout');
- });
  
 
 
