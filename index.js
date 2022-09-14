@@ -22,26 +22,32 @@
  
  function onsubmit1(event){
     event.preventDefault();
-    var val = event.target.name.value;
+    var name = event.target.name.value;
     var mail = event.target.Email.value;
-
-    let userObj = {
-        username : val,
-        userID : mail
-         
+    
+    let obj = {
+        name,
+        mail
     };
 
-    let userObj_serialized = JSON.stringify(userObj);
-    localStorage.setItem('userObj', userObj_serialized);
-
-    let userObj_deserialized = JSON.parse(localStorage.getItem('userObj'));
-    console.log(userObj_deserialized);
+    let obj_serialized = JSON.stringify(obj);
+    localStorage.setItem(obj.userID , obj_serialized);      //storing all the users without deleting the older ones
 
 
-    // localStorage.setItem('name', val);
+    let userObj_deserialized = JSON.parse(localStorage.getItem(obj.userID));
+     console.log(userObj_deserialized);
+    // localStorage.setItem('name', name);
     // localStorage.setItem('Email', mail);
     // console.log(event.target.Email.value);
+    showUserOnScreen(obj)
  }
+ function showUserOnScreen(user){
+    
+    const parentNode = document.getElementById('listOfUsers');      //creating parentnode
+    const childHtml = `<li> ${user.name} - ${user.mail} </li>`;    //creating child nodes
+    //pushing childnodes into parent node
+    parentNode.innerHTML = parentNode.innerHTML + childHtml;
+ };
  
 
 
