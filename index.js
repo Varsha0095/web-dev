@@ -24,8 +24,22 @@
     event.preventDefault();
     var val = event.target.name.value;
     var mail = event.target.Email.value;
-    localStorage.setItem('name', val);
-    localStorage.setItem('Email', mail);
+
+    let userObj = {
+        username : val,
+        userID : mail
+         
+    };
+
+    let userObj_serialized = JSON.stringify(userObj);
+    localStorage.setItem('userObj', userObj_serialized);
+
+    let userObj_deserialized = JSON.parse(localStorage.getItem('userObj'));
+    console.log(userObj_deserialized);
+
+
+    // localStorage.setItem('name', val);
+    // localStorage.setItem('Email', mail);
     // console.log(event.target.Email.value);
  }
  
