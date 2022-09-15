@@ -7,6 +7,9 @@
             text-align: center;
             border: 3px solid black; width: 600px; text-align: center;
         }
+        h1{
+            border-bottom: #ccc 5px solid;
+        }
         ul{
             list-style: none;
         }
@@ -29,48 +32,44 @@
             display: block;
             width: 100%;
             padding: 10px 15px;
-            border: 0;
+            border: 10px;
             background: #333;
             color: #fff;
             border-radius: 5px;
             margin: 5px 90px;
         }
         h1{color: black;}
-        button{background-color: black;
-        width: 300px;}
+        
     </style>
 </head>
 <body>
-<section class=".container">
 
     <form id="my-form" onsubmit="onsubmit1(event)">
-        <h1>Add User</h1>
+        <h1>Book Appointment App</h1>
         <div class="msg"></div>
          
         <div>
-        <label for="name">Name:</label> 
+        <label for="name" style="font-family: verdana;"><b>Name:</b></label> 
         <br>
         <input type="text" id="name" name="name" style="width:400px;" required/>
         </div>
         <br>
         <div>
-        <label for="email">Email:</label> 
+        <label for="email" style="font-family: verdana;"><b>Email:</b></label> 
         <br>
         <input type="text" id="Email" name="Email" style="width:400px;" required/>
         </div>
         <br>
         <div>
-        
-        <button id="button" style="width:400px; background-color: black; color: white;">Submit</button>
+        <label for="phone" style="font-family: verdana;"><b>Phone:</b></label>
+        <br>
+        <input type="text" id="phone" name="Phone" style="width:400px"/>
+        </div>
+        <br>
+        <button id="button" style="width:400px; height: 30px; background-color: black; color: white;">Submit</button>
         
     </form>
-    <ul id="users"></ul>
-    <!--<ul class="items">
-    <li class="item">item1</li>
-    <li class="item" style="color: yellow;">item2</li>
-    <li class="item" style="color: green;">item3</li>
-    </ul>-->
-</section>
+    <ul id = 'listOfUsers'></ul>
    <script src="index.js"></script>
 </body>
 </html>
