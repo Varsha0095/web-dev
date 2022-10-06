@@ -125,53 +125,71 @@
 //getting the parentNode of this above parentNode
 // console.log(itemList.parentNode.parentNode);
 //using parentelement
-var itemList = document.querySelector('#items');
+// var itemList = document.querySelector('#items');
 
-console.log(itemList.parentElement);
-console.log(itemList.parentElement.parentElement);
-// // itemList.parentElement.style.color = 'blue';
-// //LASTELEMENTCHILD
-console.log(itemList.lastElementChild);
-console.log(itemList.lastChild);
-// //CREATING CHILD
-var newChild = document.createElement('li');
-// //ADDING CLASS TO THIS NEWCHILD
-newChild.className = 'list-group-item';
-// //INSERTING TEXT IN THE NEWCHILD
-var newChildText = document.createTextNode('Hello');
-newChild.appendChild(newChildText);     //appending the value into the newchild
-console.log(newChild);
-// //INSERTING NEWCHILD FROM JS INTO DOM
-var listGroup = document.querySelector('ul.list-group');
-var li = document.querySelector('li.list-group-item');
-listGroup.insertBefore(newChild,li);
-newChild.style.fontWeight = 'bold';
-newChild.style.color = 'blue';
-// newChild.style.fontFamily = 'verdana';
-// //firstelementchild
-console.log(itemList.firstElementChild);
-console.log(itemList.firstChild);
-console.log(newChild.nextSibling);
-console.log(itemList.previousSibling);
-console.log(itemList.previousElementSibling);
-//creating element div
-var newDiv = document.createElement('div');
-newDiv.className = 'hello2';         //adding class to the element newdiv
-//we can also add id to the element newdiv
-//adding other attributes to new div
- newDiv.setAttribute('title','Hello Div');       //title is the name of att and hello div is the value of att
-//INSERTING TEXT IN NEWDIV
-var newdivText = document.createTextNode('HELLO');
-newDiv.appendChild(newdivText);
-console.log(newDiv);
-//INSERTING NEWDIV INTO DOM FROM JS
-var container = document.querySelector('header .container');
-var h1 = document.querySelector('header h1');
-container.insertBefore(newDiv,h1);
+// console.log(itemList.parentElement);
+// console.log(itemList.parentElement.parentElement);
+// // // itemList.parentElement.style.color = 'blue';
+// // //LASTELEMENTCHILD
+// console.log(itemList.lastElementChild);
+// console.log(itemList.lastChild);
+// // //CREATING CHILD
+// var newChild = document.createElement('li');
+// // //ADDING CLASS TO THIS NEWCHILD
+// newChild.className = 'list-group-item';
+// // //INSERTING TEXT IN THE NEWCHILD
+// var newChildText = document.createTextNode('Hello');
+// newChild.appendChild(newChildText);     //appending the value into the newchild
+// console.log(newChild);
+// // //INSERTING NEWCHILD FROM JS INTO DOM
+// var listGroup = document.querySelector('ul.list-group');
+// var li = document.querySelector('li.list-group-item');
+// listGroup.insertBefore(newChild,li);
+// newChild.style.fontWeight = 'bold';
+// newChild.style.color = 'blue';
+// // newChild.style.fontFamily = 'verdana';
+// // //firstelementchild
+// console.log(itemList.firstElementChild);
+// console.log(itemList.firstChild);
+// console.log(newChild.nextSibling);
+// console.log(itemList.previousSibling);
+// console.log(itemList.previousElementSibling);
+// //creating element div
+// var newDiv = document.createElement('div');
+// newDiv.className = 'hello2';         //adding class to the element newdiv
+// //we can also add id to the element newdiv
+// //adding other attributes to new div
+//  newDiv.setAttribute('title','Hello Div');       //title is the name of att and hello div is the value of att
+// //INSERTING TEXT IN NEWDIV
+// var newdivText = document.createTextNode('HELLO');
+// newDiv.appendChild(newdivText);
+// console.log(newDiv);
+// //INSERTING NEWDIV INTO DOM FROM JS
+// var container = document.querySelector('header .container');
+// var h1 = document.querySelector('header h1');
+// container.insertBefore(newDiv,h1);
+// console.log(newDiv);
 
-console.log(newDiv);
-
-
-//ADDING HELLOWORLD BEFORE ITEMLISTER
+//ADDING DELETE BUTTON
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
+//form submit event
+form.addEventListener('submit', addItem);
+//additem
+function addItem(e){
+    e.preventDefault();
+}
+//getting input value
+var newItem = document.getElementById('item').value;
+var delBtn = document.createElement('button');
+//creating new li element
+var li = document.createElement('li');
+li.className = 'group-list-item';
+li.appendChild(document.createTextNode(newItem));
+itemList.appendChild(li);
+delBtn.className = 'btn btn-danger btn-sm float-right delete';      //adding class to delbutton
+delBtn.appendChild(document.createTextNode('X'));                   //adding textnode
+li.appendChild(delBtn);                                             //appending delbutton to li
+itemList.appendChild(li);                                           //appending li to itemList
 
 
