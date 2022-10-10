@@ -38,7 +38,7 @@
 
 
     let userObj_deserialized = JSON.parse(localStorage.getItem(obj.mail));
-     console.log(userObj_deserialized);
+   //   console.log(userObj_deserialized);
     // localStorage.setItem('name', name);
     // localStorage.setItem('Email', mail);
     // console.log(event.target.Email.value);

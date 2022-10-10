@@ -4,8 +4,11 @@
     <style>
         
         body{
+            background-image: url('./istockphoto.jpg');
             text-align: center;
             border: 3px solid black; width: 600px; text-align: center;
+            margin: 0 400px;
+            
         }
         h1{
             border-bottom: #ccc 5px solid;
@@ -27,6 +30,8 @@
         }
         form{
             display: block;
+            background-image: none;
+            
         }
         .button{
             display: block;
@@ -39,12 +44,14 @@
             margin: 5px 90px;
         }
         h1{color: black;}
+        .form1{background-image: none;}
         
     </style>
 </head>
 <body>
 
     <form id="my-form" onsubmit="onsubmit1(event)">
+       <div class="form1">
         <h1>Book Appointment App</h1>
         <div class="msg"></div>
          
@@ -67,9 +74,10 @@
         </div>
         <br>
         <button id="button" style="width:400px; height: 30px; background-color: black; color: white;">Submit</button>
-        
+    </div>
     </form>
     <ul id = 'listOfUsers'></ul>
    <script src="index.js"></script>
+
 </body>
 </html>
