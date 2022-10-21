@@ -94,8 +94,8 @@
     //  }
     
     const parentNode = document.getElementById('listOfUsers');      //creating parentnode
-    const childHtml = `<li id=${user.mail}> ${user.name} - ${user.mail} 
-                        <button onclick = deleteUser('${user.mail}') style = 'color: white; background-color: gray;'>Delete User</button> 
+    const childHtml = `<li id=${user._id}> ${user.name} - ${user.mail} 
+                        <button onclick = deleteUser('${user._id}') style = 'color: white; background-color: gray;'>Delete User</button> 
                         <button onclick = editUserDetails('${user.name}','${user.mail}','${user.phone}') style = 'color:white; background-color: gray;'>Edit User </li>`;    //creating child nodes
                         
     parentNode.innerHTML = parentNode.innerHTML + childHtml;       //pushing childnodes into parent node
@@ -109,15 +109,22 @@
     deleteUser(mail)
  };
 
- function deleteUser(mail){
-    console.log(mail);
-    localStorage.removeItem(mail);
-    removeUserFromScreen(mail);
+ function deleteUser(userId){
+   axios.delete(`https://crudcrud.com/api/72e3b6befa9a4861a758f6229d69fb4c/data/${userId}`)
+   .then((response) => {
+      removeUserFromScreen(userId)
+   })
+   .catch((err) => {
+      console.log(err);
+   })
+   //  console.log(mail);
+   //  localStorage.removeItem(mail);
+   //  removeUserFromScreen(mail);
  }
 
-  function removeUserFromScreen(mail){
+  function removeUserFromScreen(userId){
   const parentNode = document.getElementById('listOfUsers') ;
-  const childToBeDeleted = document.getElementById(mail) ;
-  console.log(mail);
+  const childToBeDeleted = document.getElementById(userId) ;
+  console.log(userId);
    parentNode.removeChild(childToBeDeleted);
  };
