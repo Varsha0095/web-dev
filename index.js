@@ -96,17 +96,26 @@
     const parentNode = document.getElementById('listOfUsers');      //creating parentnode
     const childHtml = `<li id=${user._id}> ${user.name} - ${user.mail} 
                         <button onclick = deleteUser('${user._id}') style = 'color: white; background-color: gray;'>Delete User</button> 
-                        <button onclick = editUserDetails('${user.name}','${user.mail}','${user.phone}') style = 'color:white; background-color: gray;'>Edit User </li>`;    //creating child nodes
+                        <button onclick = editUserDetails('${user.name}','${user.mail}','${user.phone}','${user._id}') style = 'color:white; background-color: gray;'>Edit User </li>`;    //creating child nodes
                         
     parentNode.innerHTML = parentNode.innerHTML + childHtml;       //pushing childnodes into parent node
  };
- function editUserDetails(name,mail,phone){
-    console.log(name, mail, phone);
+ function editUserDetails(name, mail, phone, userId){
+   // axios.put(`https://crudcrud.com/api/72e3b6befa9a4861a758f6229d69fb4c/data/${userId}`,obj)
+   //    .then((response) => {
+         
+   //    })
+   //    .catch((err) => {
+   //       console.log(err);
+   //    })
+
+
+   //  console.log(name, mail, phone);
     document.getElementById('name').value = name;
     document.getElementById('Email').value = mail;
     document.getElementById('phone').value = phone;
 
-    deleteUser(mail)
+    deleteUser(userId)
  };
 
  function deleteUser(userId){
