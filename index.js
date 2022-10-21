@@ -32,17 +32,28 @@
         phone
     };
     
+    axios.post("https://crudcrud.com/api/72e3b6befa9a4861a758f6229d69fb4c/data", obj)
+    .then((response) => {
+      showUserOnScreen(response.data)
+      console.log(response);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+
+
+
 
     // let obj_serialized = JSON.stringify(obj);
-    localStorage.setItem(obj.mail , JSON.stringify(obj));      //storing all the users without deleting the older ones
+   //  localStorage.setItem(obj.mail , JSON.stringify(obj));      //storing all the users without deleting the older ones
 
 
-    let userObj_deserialized = JSON.parse(localStorage.getItem(obj.mail));
+   //  let userObj_deserialized = JSON.parse(localStorage.getItem(obj.mail));
    //   console.log(userObj_deserialized);
     // localStorage.setItem('name', name);
     // localStorage.setItem('Email', mail);
     // console.log(event.target.Email.value);
-    showUserOnScreen(obj)
+   //  showUserOnScreen(obj)
  }
  window.addEventListener('DOMContentLoaded',() => {
     const localStorageObj = localStorage;
