@@ -56,15 +56,36 @@
    //  showUserOnScreen(obj)
  }
  window.addEventListener('DOMContentLoaded',() => {
-    const localStorageObj = localStorage;
-    const localstorageKeys = Object.keys(localStorageObj);
+   const data = axios.get("https://crudcrud.com/api/72e3b6befa9a4861a758f6229d69fb4c/data")
+      .then((response) => {
+         console.log(response)
 
-    for(let i=0; i<localstorageKeys.length; i++){
-        const key = localstorageKeys[i];
-        const userDetailsStr = localStorageObj[key];
-        const userDetailsObj = JSON.parse(userDetailsStr);
-        showUserOnScreen(userDetailsObj);
-    }
+         for(var i=0; i<response.data.length; i++){
+            showUserOnScreen(response.data[i])
+         }
+      })
+      .catch((err) => {
+         console.log(err);
+      })
+
+      console.log(data);
+
+
+
+
+
+
+
+
+   //  const localStorageObj = localStorage;
+   //  const localstorageKeys = Object.keys(localStorageObj);
+
+   //  for(let i=0; i<localstorageKeys.length; i++){
+   //      const key = localstorageKeys[i];
+   //      const userDetailsStr = localStorageObj[key];
+   //      const userDetailsObj = JSON.parse(userDetailsStr);
+   //      showUserOnScreen(userDetailsObj);
+   //  }
  })
  
  function showUserOnScreen(user){
